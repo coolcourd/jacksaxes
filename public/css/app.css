@@ -1,12 +1,14 @@
 :root {
     
-    --wood: #997635;
+    --wood: #815438;
     --accent: #D9971C;
-    --black: #1C160A;
-    --blue: #003E8C;
+    --black: #222222;
+    --blue: #061a33;
   }
 
+
 body{
+    color: #bbb;
     background-color: var(--wood);
 }
 
@@ -17,6 +19,25 @@ body{
     justify-content: flex-start;
   }
 
-  #footer {
-    margin-top: auto;
-  }
+#footer {
+margin-top: auto;
+border-top: 3px solid var(--blue);
+}
+
+.navbar{
+    border-bottom: 3px solid var(--blue);
+}
+
+.nav-link{
+    font-size: 1.2rem;
+}
+
+a {
+    color: var(--blue);
+}
+
+.navbar-dark .navbar-nav .active>.nav-link {
+    color: var(--blue);
+    font-weight: bold;
+}
+

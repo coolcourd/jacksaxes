@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Facade;
 
 return [
     'colors' => [
-        "wood" => "#997635",
+        "wood" => "#815438",
         "accent" => "#D9971C",
-        "black" => "#1C160A",
-        "blue" => "#003E8C"
+        "black" => "#222222",
+        "blue" => "#061a33"
     ],
 
     /*
