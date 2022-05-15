@@ -1,0 +1,22 @@
+:root {
+    
+    --wood: #997635;
+    --accent: #D9971C;
+    --black: #1C160A;
+    --blue: #003E8C;
+  }
+
+body{
+    background-color: var(--wood);
+}
+
+#page {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #footer {
+    margin-top: auto;
+  }
