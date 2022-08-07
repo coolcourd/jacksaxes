@@ -43,27 +43,27 @@ export default () => {
             button="Schedule"
             click={() => navigate("/schedule", { replace: true })}
             src="/assets/schedule.jpg"
-            alt="hello" />
+            alt="schedule" />
         </Col>
         <Col md='4'>
           <FeatureCard
             title="Waiver"
             subtitle="Your safety is our top priority!"
             text="Before you get started, you will need to fill out our liability waiver. We will also go over axe throwing safety procedures."
-            button="hello"
+            button="Sign Now"
             click={() => navigate("/waiver", { replace: true })}
             src="/assets/axe2.jpg"
-            alt="hello" />
+            alt="axe on log" />
         </Col>
         <Col md='4'>
           <FeatureCard
             title="About"
             subtitle="Who are we? What do we do?"
             text="Jack's Axes was born out of love for axe throwing in 2022. We wanted to create a fun and safe environment for everyone to enjoy axe throwing as much as we do."
-            button="hello"
+            button="Read More"
             click={() => navigate("/about", { replace: true })}
             src="https://source.unsplash.com/random"
-            alt="hello" />
+            alt="random image" />
         </Col>
       </Row>
 
