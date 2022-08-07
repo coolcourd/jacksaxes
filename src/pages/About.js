@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import '../App.css';
 
 
@@ -7,20 +6,9 @@ import '../App.css';
 export default () => {
   return (
   <div className="App">
-  <header className="App-header">
-    <img src={logo} className="App-logo" alt="logo" />
-    <p>
-      ABOUT PAGE
-    </p>
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Learn React
-    </a>
-  </header>
+      <h1 style={{color:"#a6a6a6", paddingTop: "2rem"}}>
+      About
+    </h1>
 </div>
 )
 }

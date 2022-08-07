@@ -6,37 +6,40 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   NavbarText
 } from 'reactstrap';
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nb = (args) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const activeStyle = {
+    background: "blue",
+  };
+
   return (
     <div>
       <Navbar {...args}>
-        <NavbarBrand href="/">🪓 Jack's Axes 🪓</NavbarBrand>
+        <NavbarBrand href="/"> <img src='/assets/logo-small.png' alt='jacksaxes logo'></img> </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-            <NavLink><Link to="/">Home</Link></NavLink>
+            <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem>
-            <NavLink><Link to="/schedule">Schedule</Link></NavLink>
+            <NavLink to="/schedule">Schedule</NavLink>
             </NavItem>
             <NavItem>
-            <NavLink><Link to="/waiver">Waiver</Link></NavLink>
+            <NavLink to="/waiver">Waiver</NavLink>
             </NavItem>
             <NavItem>
-            <NavLink><Link to="/about">About</Link></NavLink>
+            <NavLink to="/about">About</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText className='text-light margin-right-md'>Booking Now!</NavbarText>
         </Collapse>
       </Navbar>
     </div>

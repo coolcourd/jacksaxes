@@ -1,16 +1,33 @@
 import '../App.css';
+import { useState } from 'react';
+import { Spinner } from 'reactstrap';
 
 
 // home functional react component
 
 export default () => {
+  const [spinner, setSpinner] = useState(true);
   return (
-  <div className="App">
-    <p>
-      SCHEDULE PAGE
-    </p>
-    <iframe width='100%' height='750px' src='https://courd-courdh.zohobookings.com/portal-embed#/customer/4348918000000028071' frameborder='0' allowfullscreen='' > </iframe>
-    <iframe width='100%' height='750px' src='https://squareup.com/appointments/book/s49lod9rdhy0ea/L37888EYX08B1/start' frameborder='0' allowfullscreen='' > </iframe>
+  <div className="App" style={{backgroundColor: "white"}}>
+    <h1 style={{color:"#252525", paddingTop: "2rem"}}>
+      SCHEDULE
+    </h1>
+
+      {spinner && <Spinner
+      color='primary'
+      style={{
+        height: '100px',
+        width: '100px',
+        marginTop: '200px'
+      }} /> }
+      <iframe 
+      width='100%' 
+      height='750px' 
+      src='https://squareup.com/appointments/book/rvkr18hpstsjc6/L7VZ3WMVJH21Y/services' 
+      frameborder='0' 
+      allowfullscreen='' 
+      onLoad={() => setSpinner(false)}
+       />
 
 </div>
 )
