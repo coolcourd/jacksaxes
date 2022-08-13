@@ -2,7 +2,7 @@ import React from "react"
 import { Card, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
-export default ({style, title, subtitle, text, button, click, src, alt}) => {
+const FeatureCard = ({style, title, subtitle, text, button, click, src, alt}) => {
     return (
         <Card
             style={{
@@ -54,3 +54,5 @@ export default ({style, title, subtitle, text, button, click, src, alt}) => {
         </Card>
     )
 }
+
+export default FeatureCard

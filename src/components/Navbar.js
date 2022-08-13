@@ -15,10 +15,6 @@ const Nb = (args) => {
 
   const toggle = () => setIsOpen(!isOpen);
 
-  const activeStyle = {
-    background: "blue",
-  };
-
   return (
     <div>
       <Navbar {...args}>

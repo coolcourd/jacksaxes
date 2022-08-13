@@ -5,7 +5,7 @@ import { Spinner } from 'reactstrap';
 
 // home functional react component
 
-export default () => {
+const Schedule = () => {
   const [spinner, setSpinner] = useState(true);
   return (
   <div className="App" style={{backgroundColor: "white"}}>
@@ -32,3 +32,5 @@ export default () => {
 </div>
 )
 }
+
+export default Schedule

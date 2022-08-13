@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 // home functional react component
 
-export default () => {
+const Home = () => {
   let navigate = useNavigate();
 
   const items = [
@@ -70,3 +70,5 @@ export default () => {
     </div>
   )
 }
+
+export default Home

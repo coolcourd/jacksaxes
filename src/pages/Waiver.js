@@ -4,7 +4,7 @@ import '../App.css';
 
 // home functional react component
 
-export default () => {
+const Waiver = () => {
   return (
     <div className="App">
       <h1 className='padding-x-md'>Waiver</h1>
@@ -43,3 +43,5 @@ export default () => {
     </div>
   )
 }
+
+export default Waiver
