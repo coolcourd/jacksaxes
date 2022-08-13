@@ -21,6 +21,7 @@ const Schedule = () => {
         marginTop: '200px'
       }} /> }
       <iframe 
+      title='square-appointments'
       width='100%' 
       height='750px' 
       src='https://squareup.com/appointments/book/rvkr18hpstsjc6/L7VZ3WMVJH21Y/services' 
