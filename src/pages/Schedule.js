@@ -10,7 +10,7 @@ const Schedule = () => {
   return (
   <div className="App" style={{backgroundColor: "white"}}>
     <h1 style={{color:"#252525", paddingTop: "2rem"}}>
-      SCHEDULE
+      Book Us Now
     </h1>
 
       {spinner && <Spinner

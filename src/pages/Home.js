@@ -49,7 +49,7 @@ const Home = () => {
           <FeatureCard
             title="Waiver"
             subtitle="Your safety is our top priority!"
-            text="Before you get started, you will need to fill out our liability waiver. We will also go over axe throwing safety procedures."
+            text="Before you get started, you will need to fill out our liability waiver and agree to follow our basic safety rules while in the axe throwing area(s)"
             button="Sign Now"
             click={() => navigate("/waiver", { replace: true })}
             src="/assets/axe2.jpg"
@@ -59,7 +59,7 @@ const Home = () => {
           <FeatureCard
             title="About"
             subtitle="Who are we? What do we do?"
-            text="Jack's Axes was born out of love for axe throwing in 2022. We wanted to create a fun and safe environment for everyone to enjoy axe throwing as much as we do."
+            text="Jack's Axes is a Mobile Axe Throwing business based in the Queen Creek area. You will find us set up in various parks and all over the community at events and anywhere that people like to have fun."
             button="Read More"
             click={() => navigate("/about", { replace: true })}
             src="https://source.unsplash.com/random"

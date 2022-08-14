@@ -9,12 +9,14 @@ import Waiver from "./pages/Waiver";
 import Schedule from "./pages/Schedule";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
   return (
     <BrowserRouter>
     <Header />
+    <ScrollToTop />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="about" element={<About />} />

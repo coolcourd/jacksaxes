@@ -26,7 +26,7 @@ const Nb = (args) => {
             <NavLink to="/">Home</NavLink>
             </NavItem>
             <NavItem>
-            <NavLink to="/schedule">Schedule</NavLink>
+            <NavLink to="/schedule">Book Us Now</NavLink>
             </NavItem>
             <NavItem>
             <NavLink to="/waiver">Waiver</NavLink>
