@@ -36,6 +36,21 @@ body {
 }
 
 
+.navbar-toggler{
+  background: white !important;
+}
+
+.warning{
+  color: red;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.info{
+  color: rgb(16, 86, 143);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
 
 /* on mobile devices */
 @media (max-width: 768px) {
