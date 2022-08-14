@@ -16,7 +16,6 @@ const Waiver = () => {
     dateArr.unshift(dateArr.pop())
     const d = document.getElementById('date')
     d.value = dateArr.map(num => num.padStart(2, "0")).join("-")
-    d.disabled = true
   }, [])
 
   const handleSubmit = async (e) => {
@@ -38,7 +37,7 @@ const Waiver = () => {
         e.target.reset()
         return toast("Waiver submitted successfully!", { type: "success" })
         }
-      toast("Something went wrong, please check your form data or try again later", { type: "error" })
+      toast(`There was an error, ${res.error}`, { type: "error" })
       } catch (error) {
         console.log(error)
         toast("Something went wrong, please check your form data or try again later", { type: "error" });        
@@ -237,13 +236,13 @@ const Waiver = () => {
                 <Col lg='4' sm='12'>
                   <FormGroup floating>
                     <Input
-                      id="emergancy"
-                      name="emergancy"
-                      placeholder="Emergancy Contact Number"
+                      id="emergency"
+                      name="emergency"
+                      placeholder="Emergency Contact Number"
                       type="text"
                     />
-                    <Label for="emergancy">
-                      Emergancy Contact Number
+                    <Label for="emergency">
+                      Emergency Contact Number
                     </Label>
                   </FormGroup>
 
