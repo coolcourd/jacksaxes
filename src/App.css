@@ -117,7 +117,7 @@ footer  a {
   animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
-
+  animation-delay: -7s;
 }
 
 
