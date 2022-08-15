@@ -14,9 +14,9 @@ const Home = () => {
   const items = [
     {
       src: '/assets/axe.jpg',
-      altText: 'Jacks Axes',
+      altText: "jack's Axes",
       header: 'Looking for something fun to do?',
-      caption: 'Book with Jacks Axes!',
+      caption: "Book with jack's Axes!",
       key: 1,
     },
     {
@@ -32,7 +32,20 @@ const Home = () => {
     <div className="App">
 
 
-      <Slider items={items} />
+      <Slider className='desktop-only' items={items} />
+      <div className='mobile-only'>
+        <img src='/assets/axe.png' alt='animated axe' className='thrown w3-spin' />
+        <Row className='' style={{ backgroundImage: 'url(/assets/wood.jpg)', backgroundSize: "cover", width: '100%', height: '100%' }} >
+          <div className='padding-xl overlay' style={{backgroundColor: 'rgba(40, 44, 52, .8)'}} >
+          <Col className='padding-lg margin-y-sm' >
+            <p style={{ color: 'white', fontSize: '1.5rem' }}>Ready to throw?</p>
+            </Col>
+          <Col className='padding-lg margin-y-sm' >
+            <p style={{ color: 'white', fontSize: '1.5rem' }}>Book with Jack's Axes!</p>
+            </Col>
+          </div>
+        </Row>
+      </div>
 
       <Row>
         <Col md='4'>

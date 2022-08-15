@@ -52,10 +52,20 @@ body {
   font-weight: bold;
 }
 
+.mobile-only {
+  display: none;
+}
+
 /* on mobile devices */
 @media (max-width: 768px) {
   .carousel-item {
     height: 400px;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: block;
   }
 }
 
@@ -89,6 +99,28 @@ footer  a {
   font-size: 1.2rem;
   margin-right: 2rem;
 }
+
+@keyframes throw {
+  0%   {transform: rotate(-360deg); left:-300px; top:150px;}
+  5%  {transform: rotate(0deg); left:200px; top:150px;}
+  20% {transform: rotate(0deg); left:200px; top:150px;}
+  25%  {left:200px; top:400px;}
+  30%  {left:200px; top:400px; opacity: 0;}
+  100%  {left:200px; top:400px; opacity: 0;}
+}
+
+.thrown{
+  height: 200px;
+  position: absolute;
+  top: 100px;
+  animation-name: throw;
+  animation-duration: 8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+
 
 /* should be part of bootstrap */
 

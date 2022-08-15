@@ -36,12 +36,12 @@ const Waiver = () => {
       if (res.success) {
         e.target.reset()
         return toast("Waiver submitted successfully!", { type: "success" })
-        }
-      toast(`There was an error, ${res.error}`, { type: "error" })
-      } catch (error) {
-        console.log(error)
-        toast("Something went wrong, please check your form data or try again later", { type: "error" });        
       }
+      toast(`There was an error, ${res.error}`, { type: "error" })
+    } catch (error) {
+      console.log(error)
+      toast("Something went wrong, please check your form data or try again later", { type: "error" });
+    }
   }
 
 
@@ -261,7 +261,26 @@ const Waiver = () => {
                   </FormGroup>
                 </Col>
 
-                <Col lg='6' sm='12'>
+                <Col lg='4' sm='12'>
+                  <FormGroup floating>
+                    <Label for="birthday-month">
+                      Birthday Month
+                    </Label>
+                    <Input
+                      id="birthday-month"
+                      name="birthday-month"
+                      type="select"
+                    >
+                      {
+                        ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => {
+                          return <option key={month} value={month}>{month}</option>
+                        }
+                        )}
+                    </Input>
+                  </FormGroup>
+                </Col>
+
+                <Col lg='4' sm='12'>
                   <FormGroup floating>
                     <Input
                       id="email"
@@ -275,7 +294,7 @@ const Waiver = () => {
                   </FormGroup>
                 </Col>
 
-                <Col lg='6' sm='12'>
+                <Col lg='4' sm='12'>
                   <FormGroup floating>
                     <Input
                       id="signature"

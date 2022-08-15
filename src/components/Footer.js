@@ -10,7 +10,7 @@ const Footer = () => {
         }}>
             <Row>
                 <Col md='6' style={{ textAlign: "left" }}>
-                    <h5><Link to="/">Jacks Axes</Link></h5>
+                    <h5><Link to="/">Jack's Axes</Link></h5>
                     <p>
                         <Link to="/schedule">Schedule</Link>
                     </p>
