@@ -75,7 +75,7 @@ const Home = () => {
             text="Jack's Axes is a Mobile Axe Throwing business based in the Queen Creek area. You will find us set up in various parks and all over the community at events and anywhere that people like to have fun."
             button="Read More"
             click={() => navigate("/about", { replace: true })}
-            src="https://source.unsplash.com/random"
+            src="/assets/trailer.jpg"
             alt="random image" />
         </Col>
       </Row>

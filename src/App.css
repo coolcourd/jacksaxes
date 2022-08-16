@@ -101,12 +101,67 @@ footer  a {
 }
 
 @keyframes throw {
-  0%   {transform: rotate(-360deg); left:-300px; top:150px;}
-  5%  {transform: rotate(0deg); left:200px; top:150px;}
-  20% {transform: rotate(0deg); left:200px; top:150px;}
-  25%  {left:200px; top:400px;}
-  30%  {left:200px; top:400px; opacity: 0;}
-  100%  {left:200px; top:400px; opacity: 0;}
+  0%   {
+    transform: rotate(-360deg);
+    left:-300px;
+    top:150px;
+  }
+  5%  {
+    transform: rotate(0deg);
+    left:200px;
+    top:150px;
+  }
+  20% {
+    transform: rotate(0deg);
+    left:200px;
+    top:150px;
+  }
+  25%  {
+    left:200px;
+    top:400px;
+  }
+  30%  {
+    left:200px;
+    top:400px;
+    opacity: 0;
+  }
+  100%  {
+    left:200px;
+    top:400px;
+    opacity: 0;
+  }
+}
+
+@keyframes throw-web {
+  0%   {
+    -webkit-transform: rotate(-360deg);
+    -webkit-left:-300px;
+    -webkit-top:150px;
+  }
+  5%  {
+    -webkit-transform: rotate(0deg);
+    -webkit-left:200px;
+    -webkit-top:150px;
+  }
+  20% {
+    -webkit-transform: rotate(0deg);
+    -webkit-left:200px;
+    -webkit-top:150px;
+  }
+  25% {
+    -webkit-left:200px;
+    -webkit-top:400px;
+  }
+  30%  {
+    -webkit-left:200px;
+    -webkit-top:400px;
+    -webkit-opacity: 0;
+  }
+  100%  {
+    -webkit-left:200px;
+    -webkit-top:400px;
+    -webkit-opacity: 0;
+  }
 }
 
 .thrown{
@@ -114,6 +169,7 @@ footer  a {
   position: absolute;
   top: 100px;
   animation-name: throw;
+  -webkit-animation-name: throw-web; 
   animation-duration: 8s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;

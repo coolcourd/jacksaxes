@@ -1,5 +1,6 @@
 <?php
 
+include('config.php');
 // parse json request body
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
@@ -9,7 +10,7 @@ $email_body='';
 $required_fields = ['first-name', 'last-name', 'age', 'address', 'city', 'zip', 'phone', 'emergency', 'date', 'email', 'sig', 'birthday-month'];
 
 if ($obj->age < 18) {
-    $more_required_fields = ['gfirst', 'glname', 'gsig', 'gunderstand'];
+    $more_required_fields = ['gfirst-name', 'glname', 'gsig', 'gunderstand'];
     $required_fields = array_merge($required_fields, $more_required_fields);
 } else {
     $required_fields = array_merge($required_fields, ['understand']);
@@ -33,12 +34,16 @@ foreach($obj as $key => $value) {
 }
 
 // save user in mysqldb
-$mysqli = new mysqli("localhost", "<dbuser>", "<dbpass>", "<dbname>");
+$mysqli = new mysqli("localhost", DBUSER, DBPASS, DBNAME);
 if ($mysqli->connect_errno) {
     echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 }
 
-$sql = "INSERT INTO users (`first_name`, `last_name`, `age`, `address`, `city`, `zip`, `phone`, `emergency`, `date`, `email`, `sig`, `birthday_month` ) VALUES ('$obj->first-name', '$obj->last-name', '$obj->age', '$obj->address', '$obj->city', '$obj->zip', '$obj->phone', '$obj->emergency', '$obj->date', '$obj->email', '$obj->sig', '$obj->birthday-month')";
+$firstName = $obj->{"first-name"};
+$lastName = $obj->{"last-name"};
+$bday = $obj->{"birthday-month"};
+
+$sql = "INSERT INTO users (`first_name`, `last_name`, `age`, `address`, `city`, `zip`, `phone`, `emergency`, `date`, `email`, `sig`, `birthday_month`, `guardian` ) VALUES ('$firstName', '$lastName', '$obj->age', '$obj->address', '$obj->city', '$obj->zip', '$obj->phone', '$obj->emergency', '$obj->date', '$obj->email', '$obj->sig', '$bday', '$obj->gsig')";
 if (!$mysqli->query($sql)) {
     echo "Error: " . $sql . "<br>" . $mysqli->error;
 }
@@ -46,24 +51,14 @@ if (!$mysqli->query($sql)) {
 $mysqli->close();
 
 
-// setup email
-// $to      = 'info@jacksaxes.com';
-$to      = 'courdheadman@gmail.com';
-$subject = 'Waiver submission';
-$message = $email_body;
-$headers = 'From:site@jacksaxes.com' . "\r\n" .
-    'Reply-To:noreply@jacksaxes.com' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+include('./mail.php');
+$email_res = sendMail('info@jacksaxes.co', 'new waiver submission', $email_body);
 
-// send email
-mail($to, $subject, $message, $headers);
 
 // send response
 header('Content-Type: application/json');
 echo json_encode([
     'message' => $email_body,
+    'email' => $email_res,
     'success' => 1
 ]);
-
-
-?>

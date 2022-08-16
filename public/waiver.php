@@ -51,25 +51,14 @@ if (!$mysqli->query($sql)) {
 $mysqli->close();
 
 
-// setup email
-$to      = 'info@jacksaxes.co';
-// $to      = 'courdheadman@gmail.com';
-$subject = 'Waiver submission';
-$message = $email_body;
-$headers = 'From:site@jacksaxes.co' . "\r\n" .
-    'Reply-To:noreply@jacksaxes.co' . "\r\n" .
-    'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
-    'X-Mailer: PHP/' . phpversion();
+include('./mail.php');
+$email_res = sendMail('info@jacksaxes.co', 'new waiver submission', $email_body);
 
-// send email
-mail($to, $subject, $message, $headers);
 
 // send response
 header('Content-Type: application/json');
 echo json_encode([
     'message' => $email_body,
+    'email' => $email_res,
     'success' => 1
 ]);
-
-
-?>
