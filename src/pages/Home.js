@@ -52,7 +52,7 @@ const Home = () => {
           <FeatureCard
             title="Schedule"
             subtitle="Jack's Axes is open for business!"
-            text="We know you wanna grab our axe. Don't be afraid, We will teach you everything you need to know to hit your target!"
+            text="We know you wanna grab our axe. Don't be afraid, we will teach you everything you need to know to hit your target!"
             button="Schedule"
             click={() => navigate("/schedule", { replace: true })}
             src="/assets/schedule.jpg"
@@ -62,7 +62,7 @@ const Home = () => {
           <FeatureCard
             title="Waiver"
             subtitle="Your safety is our top priority!"
-            text="Before you get started, you will need to fill out our liability waiver and agree to follow our basic safety rules while in the axe throwing area(s)"
+            text="Before you get started, you will need to fill out our liability waiver and agree to follow our basic safety rules while in the axe throwing area(s)."
             button="Sign Now"
             click={() => navigate("/waiver", { replace: true })}
             src="/assets/axe2.jpg"
