@@ -52,12 +52,12 @@ $mysqli->close();
 
 
 // setup email
-$to      = 'info@jacksaxes.com';
+$to      = 'info@jacksaxes.co';
 // $to      = 'courdheadman@gmail.com';
 $subject = 'Waiver submission';
 $message = $email_body;
-$headers = 'From:site@jacksaxes.com' . "\r\n" .
-    'Reply-To:noreply@jacksaxes.com' . "\r\n" .
+$headers = 'From:site@jacksaxes.co' . "\r\n" .
+    'Reply-To:noreply@jacksaxes.co' . "\r\n" .
     'Content-type: text/html; charset=iso-8859-1' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
