@@ -8,22 +8,22 @@ import { useNavigate } from "react-router-dom";
 
 // home functional react component
 
-const Home = () => {
+const Home = ({data}) => {
   let navigate = useNavigate();
 
   const items = [
     {
       src: '/assets/axe.jpg',
       altText: "jack's Axes",
-      header: 'Looking for something fun to do?',
-      caption: "Book with jack's Axes!",
+      header: data['home-slide-one-title'],
+      caption: data['home-slide-one-subtitle'],
       key: 1,
     },
     {
       src: '/assets/woman-axe.jpg',
       altText: 'Woman with Axe',
-      header: 'Perfect for date night or a group',
-      caption: 'Get your axes on over here!',
+      header: data['home-slide-two-title'],
+      caption: data['home-slide-two-subtitle'],
       key: 2,
     }
   ];
@@ -38,10 +38,10 @@ const Home = () => {
         <Row className='' style={{ backgroundImage: 'url(/assets/wood.jpg)', backgroundSize: "cover", width: '100%', height: '100%' }} >
           <div className='padding-xl overlay' style={{backgroundColor: 'rgba(40, 44, 52, .8)'}} >
           <Col className='padding-lg margin-y-sm' >
-            <p style={{ color: 'white', fontSize: '1.5rem' }}>Ready to throw?</p>
+            <p style={{ color: 'white', fontSize: '1.5rem' }}>{data['home-mobile-only-p1']}</p>
             </Col>
           <Col className='padding-lg margin-y-sm' >
-            <p style={{ color: 'white', fontSize: '1.5rem' }}>Book with Jack's Axes!</p>
+            <p style={{ color: 'white', fontSize: '1.5rem' }}>{data['home-mobile-only-p2']}</p>
             </Col>
           </div>
         </Row>
@@ -50,32 +50,32 @@ const Home = () => {
       <Row>
         <Col md='4'>
           <FeatureCard
-            title="Schedule"
-            subtitle="Jack's Axes is open for business!"
-            text="We know you wanna grab our axe. Don't be afraid, we will teach you everything you need to know to hit your target!"
-            button="Schedule"
-            click={() => navigate("/schedule", { replace: true })}
-            src="/assets/schedule.jpg"
+            title={data['home-card-one-title']}
+            subtitle={data['home-card-one-subtitle']}
+            text={data['home-card-one-body']}
+            button={data['home-card-one-button']}
+            click={() => navigate(data['home-card-one-link'], { replace: true })}
+            src={data['home-card-one-image-url']}
             alt="schedule" />
         </Col>
         <Col md='4'>
           <FeatureCard
-            title="Waiver"
-            subtitle="Your safety is our top priority!"
-            text="Before you get started, you will need to fill out our liability waiver and agree to follow our basic safety rules while in the axe throwing area(s)."
-            button="Sign Now"
-            click={() => navigate("/waiver", { replace: true })}
-            src="/assets/axe2.jpg"
+            title={data['home-card-two-title']}
+            subtitle={data['home-card-two-subtitle']}
+            text={data['home-card-two-body']}
+            button={data['home-card-two-button']}
+            click={() => navigate(data['home-card-two-link'], { replace: true })}
+            src={data['home-card-two-image-url']}
             alt="axe on log" />
         </Col>
         <Col md='4'>
           <FeatureCard
-            title="About"
-            subtitle="Who are we? What do we do?"
-            text="Jack's Axes is a Mobile Axe Throwing business based in the Queen Creek area. You will find us set up in various parks and all over the community at events and anywhere that people like to have fun."
-            button="Read More"
-            click={() => navigate("/about", { replace: true })}
-            src="/assets/trailer.jpg"
+            title={data['home-card-three-title']}
+            subtitle={data['home-card-three-subtitle']}
+            text={data['home-card-three-body']}
+            button={data['home-card-three-button']}
+            click={() => navigate(data['home-card-three-link'], { replace: true })}
+            src={data['home-card-three-image-url']}
             alt="random image" />
         </Col>
       </Row>

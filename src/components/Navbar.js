@@ -35,7 +35,7 @@ const Nb = (args) => {
             <NavLink to="/about">About</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText className='text-light margin-right-md'>Booking Now!</NavbarText>
+          <NavbarText className='text-light margin-right-md'>{args.data['header-top-right-text']}</NavbarText>
         </Collapse>
       </Navbar>
     </div>

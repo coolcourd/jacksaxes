@@ -10,18 +10,31 @@ import Schedule from "./pages/Schedule";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 function App() {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    //  random 12 char string
+    const randomString = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    fetch(`https://www.jacksaxes.co/cms.php?json=${randomString}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      }).catch(err => console.log(err));
+  }, []);
+
   return (
     <BrowserRouter>
-    <Header />
+    <Header data={data} />
     <ScrollToTop />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="waiver" element={<Waiver />} />
-      <Route path="schedule" element={<Schedule />} />
+      <Route path="/" element={<Home data={data} />} />
+      <Route path="about" element={<About data={data} />} />
+      <Route path="waiver" element={<Waiver data={data} />} />
+      <Route path="schedule" element={<Schedule data={data} />} />
     </Routes>
     <Footer />
   </BrowserRouter>

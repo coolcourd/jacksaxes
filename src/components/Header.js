@@ -1,11 +1,12 @@
 import Nb from "./Navbar";
 
-const Header = () => {
+const Header = ({data}) => {
+
     return (
         <header>
 
         <nav>
-            <Nb expand={'md'} />
+            <Nb expand={'md'} data={data} />
         </nav>
         </header>
     )
