@@ -104,6 +104,7 @@ footer  a {
   height: 200px;
   position: absolute;
   top: 180px;
+  z-index: 1;
 }
 
 /* should be part of bootstrap */
