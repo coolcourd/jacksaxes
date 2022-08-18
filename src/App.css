@@ -105,45 +105,62 @@ footer  a {
     transform: rotate(-360deg);
     left:-300px;
     top:150px;
+    -moz-transform: rotate(-360deg);
+    -moz-left:-300px;
+    -moz-top:150px;
     -webkit-transform: rotate(-360deg);
     -webkit-left:-300px;
     -webkit-top:150px;
   }
   5%  {
     transform: rotate(0deg);
-    left:150px;
+    left:100px;
     top:150px;
+    -moz-transform: rotate(0deg);
+    -moz-left:100px;
+    -moz-top:150px;
     -webkit-transform: rotate(0deg);
-    -webkit-left:150px;
+    -webkit-left:100px;
     -webkit-top:150px;
   }
   20% {
     transform: rotate(0deg);
-    left:150px;
+    left:100px;
     top:150px;
+    -moz-transform: rotate(0deg);
+    -moz-left:100px;
+    -moz-top:150px;
     -webkit-transform: rotate(0deg);
-    -webkit-left:150px;
+    -webkit-left:100px;
     -webkit-top:150px;
   }
   25%  {
-    left:150px;
+    left:100px;
     top:400px;
-    -webkit-left:150px;
+    -moz-left:100px;
+    -moz-top:400px;
+    -webkit-left:100px;
     -webkit-top:400px;
   }
   30%  {
-    left:150px;
+    left:100px;
     top:400px;
     opacity: 0;
-    -webkit-left:150px;
+    -moz-left:100px;
+    -moz-top:400px;
+    -moz-opacity: 0;
+    -webkit-left:100px;
     -webkit-top:400px;
     -webkit-opacity: 0;
   }
   100%  {
-    left:150px;
+    left:100px;
     top:400px;
     opacity: 0;
-    -webkit-left:150px;
+    -moz-left:100px;
+    -moz-top:400px;
+    -moz-opacity: 0;
+    -webkit-left:100px;
     -webkit-top:400px;
     -webkit-opacity: 0;
   }

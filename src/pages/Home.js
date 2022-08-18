@@ -34,7 +34,7 @@ const Home = ({data}) => {
 
       <Slider className='desktop-only' items={items} />
       <div className='mobile-only'>
-        <img src='/assets/axe.png' alt='animated axe' className='thrown w3-spin' />
+        <div class="w3-animate-left"><img src='/assets/axe.png' alt='animated axe' className='thrown w3-spin' /></div>
         <Row className='' style={{ backgroundImage: 'url(/assets/wood.jpg)', backgroundSize: "cover", width: '100%', height: '100%' }} >
           <div className='padding-xl overlay' style={{backgroundColor: 'rgba(40, 44, 52, .8)'}} >
           <Col className='padding-lg margin-y-sm' >
@@ -47,7 +47,7 @@ const Home = ({data}) => {
         </Row>
       </div>
 
-      <Row>
+      <Row style={{padding: '0px 0px 0px 20px'}}>
         <Col md='4'>
           <FeatureCard
             title={data['home-card-one-title']}
