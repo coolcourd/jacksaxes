@@ -28,13 +28,42 @@ const Home = ({data}) => {
     }
   ];
 
+  const handleLoad = (e) => {
+    let left = -300
+    let spin = 0
+    let top = 180
+    let opacity = 100
+    setInterval(() => {
+      left += 4;
+      spin += 4;
+      e.target.style.top = `${top}px`
+      e.target.style.opacity = `${opacity}%`
+      if (spin < 350) {
+        top = 180
+        opacity = 100
+        e.target.style.transform = `rotate(${spin}deg)`
+      }
+      if (left < 101) {
+      e.target.style.left = left + 'px';
+      }
+      if (left > 5000 && opacity > 0) {
+        top += 4;
+        opacity -= 2
+      }
+      if (left > 10000) {
+        left = -300
+        spin = 0
+      }
+    }, 1)
+  }
+
   return (
     <div className="App">
 
 
       <Slider className='desktop-only' items={items} />
       <div className='mobile-only'>
-        <div class="w3-animate-left"><img src='/assets/axe.png' alt='animated axe' className='thrown w3-spin' /></div>
+        <div class="w3-animate-left"><img src='/assets/axe.png' alt='animated axe' onLoad={handleLoad} className='thrown' /></div>
         <Row className='' style={{ backgroundImage: 'url(/assets/wood.jpg)', backgroundSize: "cover", width: '100%', height: '100%' }} >
           <div className='padding-xl overlay' style={{backgroundColor: 'rgba(40, 44, 52, .8)'}} >
           <Col className='padding-lg margin-y-sm' >
