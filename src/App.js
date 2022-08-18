@@ -36,7 +36,7 @@ function App() {
       <Route path="waiver" element={<Waiver data={data} />} />
       <Route path="schedule" element={<Schedule data={data} />} />
     </Routes>
-    <Footer />
+    <Footer data={data} />
   </BrowserRouter>
   );
 }

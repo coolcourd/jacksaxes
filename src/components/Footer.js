@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Row, Col } from 'reactstrap';
 
-const Footer = () => {
+const Footer = ({data}) => {
     return (
         <footer style={{
             backgroundColor: '#f5f5f5',
@@ -28,7 +28,7 @@ const Footer = () => {
                         <a href="mailto:info@jacksaxes.co">Email Us</a>
                     </p>
                     <p>
-                        <a href="tel:+1-480-527-1910">480-527-1910</a>
+                        <a href={'tel:+1-' + data['Phone']}>{data['Phone']}</a>
                     </p>
                     <Row>
                         <Col md='4' lg='3' sm='12'>
