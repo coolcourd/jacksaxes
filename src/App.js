@@ -23,6 +23,13 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         setData(data);
+        console.log(data)
+        if(data.style) {
+          const styleElement = document.createElement("style");
+          styleElement.className = "custom-css";
+          styleElement.innerHTML = data.style;
+          document.head.appendChild(styleElement);
+        }
       }).catch(err => console.log(err));
   }, []);
 

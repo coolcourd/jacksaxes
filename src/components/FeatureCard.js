@@ -22,7 +22,7 @@ const FeatureCard = ({ style, title, subtitle, text, button, click, src, alt }) 
                 src={src}
             />}
             <CardBody style={{
-                padding: '3rem 0px',
+                padding: '3rem 15px',
                 backgroundColor: '#ccc',
             }}>
                 <CardTitle tag="h5" style={{
@@ -34,10 +34,7 @@ const FeatureCard = ({ style, title, subtitle, text, button, click, src, alt }) 
                 </CardTitle>
                 <CardSubtitle
                     className="mb-2 text-muted"
-                    tag="h6"
-                    style={{
-                        fontSize: '1.5rem'
-                    }}
+                    tag="h3"
                     dangerouslySetInnerHTML={{ __html: subtitle }}
                 />
                 <CardText style={{
