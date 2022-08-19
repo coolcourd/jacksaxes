@@ -19,8 +19,8 @@ const Waiver = ({data}) => {
   }, [])
 
   useEffect(() => {
-    if (data['waiver-title']) {
-      document.title = data['waiver-title'];
+    if (data['waiver-meta-title']) {
+      document.title = data['waiver-meta-title'];
     }
     if (data['waiver-description']) {
       document.querySelector('meta[name="description"]').content = data['waiver-description'];

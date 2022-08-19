@@ -9,8 +9,8 @@ import { useEffect } from 'react';
 
 const About = ({ data }) => {
   useEffect(() => {
-    if (data['about-title']) {
-      document.title = data['about-title'];
+    if (data['about-meta-title']) {
+      document.title = data['about-meta-title'];
     }
     if (data['about-description']) {
       document.querySelector('meta[name="description"]').content = data['about-description'];

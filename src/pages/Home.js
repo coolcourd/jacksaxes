@@ -14,8 +14,8 @@ const Home = ({data}) => {
   let navigate = useNavigate();
 
   useEffect(() => {
-    if (data['home-title']) {
-      document.title = data['home-title'];
+    if (data['home-meta-title']) {
+      document.title = data['home-meta-title'];
     }
     if (data['home-description']) {
       document.querySelector('meta[name="description"]').content = data['home-description'];

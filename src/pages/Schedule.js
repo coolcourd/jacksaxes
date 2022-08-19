@@ -10,8 +10,8 @@ const Schedule = ({data}) => {
   const [spinner, setSpinner] = useState(true);
 
   useEffect(() => {
-    if (data['schedule-title']) {
-      document.title = data['schedule-title'];
+    if (data['schedule-meta-title']) {
+      document.title = data['schedule-meta-title'];
     }
     if (data['schedule-description']) {
       document.querySelector('meta[name="description"]').content = data['schedule-description'];
