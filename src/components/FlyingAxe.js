@@ -28,7 +28,7 @@ const FlyingAxe = () => {
         }, 1)
       }
     return (
-        <div class="w3-animate-left"><img src='/assets/axe.png' alt='animated axe' onLoad={handleLoad} className='thrown' /></div>
+        <img src='/assets/axe.png' alt='animated axe' onLoad={handleLoad} className='thrown' />
     )
 }
 

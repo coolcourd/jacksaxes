@@ -26,15 +26,15 @@ const Home = ({data}) => {
     {
       src: '/assets/axe.jpg',
       altText: "jack's Axes",
-      header: data['home-slide-one-title'],
-      caption: data['home-slide-one-subtitle'],
+      header: data['home-slide-one-title'] || "Jack's",
+      caption: data['home-slide-one-subtitle'] || 'Axes',
       key: 1,
     },
     {
       src: '/assets/woman-axe.jpg',
       altText: 'Woman with Axe',
-      header: data['home-slide-two-title'],
-      caption: data['home-slide-two-subtitle'],
+      header: data['home-slide-two-title'] || "Jack's",
+      caption: data['home-slide-two-subtitle'] || 'Axes',
       key: 2,
     }
   ];
