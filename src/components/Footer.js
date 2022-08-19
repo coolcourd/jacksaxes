@@ -12,7 +12,7 @@ const Footer = ({data}) => {
                 <Col md='6' style={{ textAlign: "left" }}>
                     <h5><Link to="/">Jack's Axes</Link></h5>
                     <p>
-                        <Link to="/schedule">Schedule</Link>
+                        <Link to="/schedule">{data['home-card-one-title']}</Link>
                     </p>
                     <p>
                         <Link to="/waiver">Waiver</Link>
