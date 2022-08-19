@@ -4,6 +4,7 @@ import FlyingAxe from '../components/FlyingAxe';
 import Slider from '../components/Slider';
 import { Row, Col } from 'reactstrap';
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 
 
@@ -11,6 +12,15 @@ import { useNavigate } from "react-router-dom";
 
 const Home = ({data}) => {
   let navigate = useNavigate();
+
+  useEffect(() => {
+    if (data['home-title']) {
+      document.title = data['home-title'];
+    }
+    if (data['home-description']) {
+      document.querySelector('meta[name="description"]').content = data['home-description'];
+    }
+  }, [data])
 
   const items = [
     {

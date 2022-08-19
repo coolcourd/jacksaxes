@@ -18,6 +18,15 @@ const Waiver = ({data}) => {
     d.value = dateArr.map(num => num.padStart(2, "0")).join("-")
   }, [])
 
+  useEffect(() => {
+    if (data['waiver-title']) {
+      document.title = data['waiver-title'];
+    }
+    if (data['waiver-description']) {
+      document.querySelector('meta[name="description"]').content = data['waiver-description'];
+    }
+  }, [data])
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const form = e.target

@@ -1,12 +1,23 @@
 import '../App.css';
 import { useState } from 'react';
 import { Spinner } from 'reactstrap';
+import { useEffect } from 'react';
 
 
 // home functional react component
 
-const Schedule = () => {
+const Schedule = ({data}) => {
   const [spinner, setSpinner] = useState(true);
+
+  useEffect(() => {
+    if (data['schedule-title']) {
+      document.title = data['schedule-title'];
+    }
+    if (data['schedule-description']) {
+      document.querySelector('meta[name="description"]').content = data['schedule-description'];
+    }
+  }, [data])
+
   return (
   <div className="App" style={{backgroundColor: "white"}}>
     <h1 style={{color:"#252525", paddingTop: "2rem"}}>
