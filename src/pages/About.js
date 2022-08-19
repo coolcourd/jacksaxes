@@ -9,14 +9,12 @@ import FeatureCard from '../components/FeatureCard';
 const About = ({data}) => {
   return (
     <div className="App">
-      <h1 style={{ color: "#a6a6a6", paddingTop: "2rem" }}>
-        {console.log(data)}
-        {data['about-title']}
+      <h1 style={{ color: "#a6a6a6", paddingTop: "2rem" }} dangerouslySetInnerHTML={{__html: data['about-title']}}>
       </h1>
 
       <Row className='padding-x-xl'>
         <Col className='offset-md-2' sm='12' md='8' style={{ background: 'white', padding: '40px' }}>
-          <p>{data['about-page-text']}</p>
+          <p dangerouslySetInnerHTML={{__html: data['about-page-text'] }}></p>
         </Col>
       </Row>
 

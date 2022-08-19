@@ -56,35 +56,7 @@ const Waiver = ({data}) => {
         <Col className='offset-md-2' sm='12' md='8' style={{ background: 'white', padding: '40px' }}>
           {/* <Form inline action="https://mailthis.to/info@jacksaxes.co" method="POST"> */}
           <Form inline onSubmit={handleSubmit}>
-            <p className='warning'>{data['waiver-warning-1']}</p>
-            <p className='warning'>{data['waiver-warning-2']}</p>
-            <p className='warning'>{data['waiver-warning-3']}</p>
-            <p class="info">{data['waiver-info-1']}</p>
-            <p>{data['waiver-p-1']}</p>
-            <p>
-            {data['waiver-p-2']}
-            </p>
-            <p>
-            {data['waiver-p-3']}
-            </p>
-            <p>
-            {data['waiver-p-4']}
-            </p>
-            <p>
-            {data['waiver-p-5']}
-            </p>
-            <p>
-            {data['waiver-p-6']}
-            </p>
-            <p>
-            {data['waiver-p-7']}
-            </p>
-            <p>
-            {data['waiver-p-8']}
-            </p>
-            <p>
-            {data['waiver-p-9']}
-            </p>
+            <div dangerouslySetInnerHTML={{__html: data['waiver-main']}} />
             <hr></hr>
             <Row>
               <Col sm='10'>
@@ -284,12 +256,7 @@ const Waiver = ({data}) => {
               {minor && (
                 <>
                   <hr />
-                  <p class="info">{data['waiver-minor-info-1']}</p>
-                  <p>{data['waiver-minor-p-1']}</p>
-                  <p>
-                  {data['waiver-minor-p-2']}
-                  </p>
-                  <p>{data['waiver-minor-p-3']}</p>
+                  <div dangerouslySetInnerHTML={{__html: data['waiver-minor-main']}} />
                   <Row>
                     <Col sm='10'>
                       <label for='gunderstand'>

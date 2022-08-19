@@ -2,7 +2,7 @@ import React from "react"
 import { Card, CardBody, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
-const FeatureCard = ({style, title, subtitle, text, button, click, src, alt}) => {
+const FeatureCard = ({ style, title, subtitle, text, button, click, src, alt }) => {
     return (
         <Card
             style={{
@@ -16,7 +16,7 @@ const FeatureCard = ({style, title, subtitle, text, button, click, src, alt}) =>
                     width: '100%',
                     height: '300px',
                     objectFit: 'cover',
-                    
+
                 }}
                 alt={alt}
                 src={src}
@@ -24,11 +24,11 @@ const FeatureCard = ({style, title, subtitle, text, button, click, src, alt}) =>
             <CardBody style={{
                 padding: '3rem',
                 backgroundColor: '#ccc',
-                }}>
+            }}>
                 <CardTitle tag="h5" style={{
-                color: '#56331C',
-                fontSize: '2rem',
-                marginBottom: '1rem',
+                    color: '#56331C',
+                    fontSize: '2rem',
+                    marginBottom: '1rem',
                 }}>
                     {title}
                 </CardTitle>
@@ -42,11 +42,9 @@ const FeatureCard = ({style, title, subtitle, text, button, click, src, alt}) =>
                     {subtitle}
                 </CardSubtitle>
                 <CardText style={{
-                        margin: '2rem',
-                        fontSize: '1.2rem',
-                }}>
-                    {text}
-                </CardText>
+                    margin: '2rem',
+                    fontSize: '1.2rem',
+                }} dangerouslySetInnerHTML={{ __html: text }} />
                 {button && <Button onClick={click}>
                     {button}
                 </Button>}
