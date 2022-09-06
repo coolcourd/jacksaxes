@@ -24,14 +24,14 @@ const Home = ({data}) => {
 
   const items = [
     {
-      src: '/assets/axe.jpg',
+      src: data['home-slide-one-image'],
       altText: "jack's Axes",
       header: data['home-slide-one-title'] || "Jack's",
       caption: data['home-slide-one-subtitle'] || 'Axes',
       key: 1,
     },
     {
-      src: '/assets/woman-axe.jpg',
+      src: data['home-slide-two-image'],
       altText: 'Woman with Axe',
       header: data['home-slide-two-title'] || "Jack's",
       caption: data['home-slide-two-subtitle'] || 'Axes',
