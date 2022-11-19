@@ -10,7 +10,7 @@ $email_body='';
 $required_fields = ['first-name', 'age', 'phone', 'date', 'email', 'sig', 'birthday-month'];
 
 if ($obj->age < 18) {
-    $more_required_fields = ['gfirst-name', 'glname', 'gsig', 'gunderstand'];
+    $more_required_fields = ['gsig', 'gunderstand'];
     $required_fields = array_merge($required_fields, $more_required_fields);
 } else {
     $required_fields = array_merge($required_fields, ['understand']);

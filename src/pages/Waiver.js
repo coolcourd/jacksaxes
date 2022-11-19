@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Button, Row, Col, Form, FormGroup, Input, Label } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
+import SignatureCanvas from 'react-signature-canvas'
 import 'react-toastify/dist/ReactToastify.css';
 import '../App.css';
 
@@ -12,6 +13,8 @@ const Waiver = ({data}) => {
   const [minor, setMinor] = useState(false)
   const [bdaySelected, selectBday] = useState(false)
   const [defaultOption, setDefaultOption] = useState('')
+  const [sig, setSig] = useState('')
+  const [gSig, setGSig] = useState('')
 
   useEffect(() => {
     const dateArr = new Date().toLocaleString().split(/\D/).slice(0, 3)
@@ -37,6 +40,19 @@ const Waiver = ({data}) => {
     data.forEach((value, key) => {
       dataObj[key] = value
     })
+    dataObj['sig'] = sig.toDataURL()
+    if(sig.isEmpty()){
+      return toast.error('Please sign the waiver')
+    }
+
+    if(minor){
+      dataObj['gsig'] = gSig.toDataURL()
+      if(gSig.isEmpty()){
+        return toast.error('Please have a guardian sign the waiver')
+      }
+    }
+
+
     try {
       const req = await fetch('/waiver.php', {
         method: 'POST',
@@ -185,31 +201,29 @@ const Waiver = ({data}) => {
 
                 </Col>
                 <Col lg='4' sm='12'>
-                <FormGroup floating>
-                    <Input
-                      id="signature"
-                      name="sig"
-                      placeholder="Signature"
-                      type="text"
-                    />
-                    <Label for="sig">
-                      Signature
-                    </Label>
-                    <p>{data['']}</p>
-
-                  </FormGroup>
-                </Col>
-                <Col lg='4' sm='12'>
                   <FormGroup floating>
                     <Input
                       id="date"
                       name="date"
                       placeholder="Date"
                       type="date"
-                    />
+                      />
                     <Label for="date">
                       Date
                     </Label>
+                  </FormGroup>
+                </Col>
+                <Col lg='4' sm='12'>
+                <FormGroup floating>
+                    <SignatureCanvas name='sig' penColor='green' ref={(ref) => {
+                      setSig(ref)
+                    } }
+    canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
+                    <Label for="sig">
+                      {sig && "Signature"}
+                    </Label>
+                    <p>{data['']}</p>
+
                   </FormGroup>
                 </Col>
 
@@ -235,18 +249,19 @@ const Waiver = ({data}) => {
                     <p class="info">{data['waiver-minor-info-2']}</p>
                     <Col md='3'/>
                     <Col md='6' sm='12'>
+                    <Col lg='4' sm='12'>
                       <FormGroup floating>
-                        <Input
-                          id="gsig"
-                          name="gsig"
-                          placeholder="Signature"
-                          type="text"
-                        />
-                        <Label for="glname">
-                          Parent/Guardian Signature
-                        </Label>
-                        <p>{data['waiver-signature-disclaimer']}</p>
-                      </FormGroup>
+                          <SignatureCanvas name='gSig' penColor='green' ref={(ref) => {
+                            setGSig(ref)
+                          } }
+          canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
+                          <Label for="sig">
+                            {sig && "Signature"}
+                          </Label>
+                          <p>{data['']}</p>
+
+                        </FormGroup>
+                      </Col>
                     </Col>
                     <p class="info">{data['waiver-minor-info-3']}</p>
                   </Row>
