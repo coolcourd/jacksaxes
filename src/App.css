@@ -107,6 +107,10 @@ footer  a {
   z-index: 1;
 }
 
+#age{
+  -wap-input-format: 'N'
+}
+
 /* should be part of bootstrap */
 
 .padding-xs { padding: .25em; }

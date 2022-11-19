@@ -53,6 +53,22 @@ const Waiver = ({data}) => {
     }
   }
 
+  const validateAge = (e) => {
+    // remove non-numeric characters
+    e.target.value = e.target.value.replace(/\D/g, '')
+    // don't allow over 99
+    if (e.target.value > 99) {
+      e.target.value = 99
+    }
+    const age = e.target.value
+
+    if (age < 18) {
+      setMinor(true)
+    } else {
+      setMinor(false)
+    }    
+  }
+
 
 
   return (
@@ -68,13 +84,14 @@ const Waiver = ({data}) => {
             <div dangerouslySetInnerHTML={{__html: data['waiver-main']}} />
             <hr></hr>
             <Row>
-              <Col sm='10'>
-                <label for='understand'>
+              <Col sm='12'>
                 {data['waiver-understand']}
-                </label>
               </Col>
-              <Col sm='2'>
-                <Input id='understand' name='understand' type='checkbox' disabled={minor}></Input>
+              <Col sm='12'>
+                <br></br>
+                <label for='understand'>
+                <span>I agree. </span><Input id='understand' name='understand' type='checkbox' disabled={minor}></Input>
+                </label>
                 {!minor && ' *'}
               </Col>
             </Row>
@@ -91,22 +108,27 @@ const Waiver = ({data}) => {
                       type="text"
                     />
                     <Label for="fname">
-                      First Name
+                      Full Name
                     </Label>
                   </FormGroup>
 
                 </Col>
                 <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="lname"
-                      name="last-name"
-                      placeholder="Last Name"
-                      type="text"
-                    />
-                    <Label for="lname">
-                      Last Name
+                <FormGroup floating>
+                    <Label for="birthday-month">
+                      Birthday Month
                     </Label>
+                    <Input
+                      id="birthday-month"
+                      name="birthday-month"
+                      type="select"
+                    >
+                      {
+                        ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => {
+                          return <option key={month} value={month}>{month}</option>
+                        }
+                        )}
+                    </Input>
                   </FormGroup>
 
                 </Col>
@@ -116,53 +138,11 @@ const Waiver = ({data}) => {
                       id="age"
                       name="age"
                       placeholder="Age"
-                      onChange={e => setMinor(e.target.value < 18)}
-                      type="number"
+                      onChange={e => validateAge(e)}
+                      type="text"
                     />
                     <Label for="age">
                       Age
-                    </Label>
-                  </FormGroup>
-                </Col>
-              </Row>
-
-              <Row>
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="address"
-                      name="address"
-                      placeholder="Address"
-                      type="text"
-                    />
-                    <Label for="address">
-                      Address
-                    </Label>
-                  </FormGroup>
-                </Col>
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="city"
-                      name="city"
-                      placeholder="City"
-                      type="text"
-                    />
-                    <Label for="city">
-                      City
-                    </Label>
-                  </FormGroup>
-                </Col>
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="zip"
-                      name="zip"
-                      placeholder="Zip Code"
-                      type="text"
-                    />
-                    <Label for="zip">
-                      Zip Code
                     </Label>
                   </FormGroup>
                 </Col>
@@ -185,18 +165,33 @@ const Waiver = ({data}) => {
 
                 </Col>
                 <Col lg='4' sm='12'>
-                  <FormGroup floating>
+                <FormGroup floating>
                     <Input
-                      id="emergency"
-                      name="emergency"
-                      placeholder="Emergency Contact Number"
-                      type="text"
+                      id="email"
+                      name="email"
+                      placeholder="Email Address"
+                      type="email"
                     />
-                    <Label for="emergency">
-                      Emergency Contact Number
+                    <Label for="email">
+                      Email Address
                     </Label>
                   </FormGroup>
 
+                </Col>
+                <Col lg='4' sm='12'>
+                <FormGroup floating>
+                    <Input
+                      id="signature"
+                      name="sig"
+                      placeholder="Signature"
+                      type="text"
+                    />
+                    <Label for="sig">
+                      Signature
+                    </Label>
+                    <p>{data['']}</p>
+
+                  </FormGroup>
                 </Col>
                 <Col lg='4' sm='12'>
                   <FormGroup floating>
@@ -212,54 +207,6 @@ const Waiver = ({data}) => {
                   </FormGroup>
                 </Col>
 
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Label for="birthday-month">
-                      Birthday Month
-                    </Label>
-                    <Input
-                      id="birthday-month"
-                      name="birthday-month"
-                      type="select"
-                    >
-                      {
-                        ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => {
-                          return <option key={month} value={month}>{month}</option>
-                        }
-                        )}
-                    </Input>
-                  </FormGroup>
-                </Col>
-
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="email"
-                      name="email"
-                      placeholder="Email Address"
-                      type="email"
-                    />
-                    <Label for="email">
-                      Email Address
-                    </Label>
-                  </FormGroup>
-                </Col>
-
-                <Col lg='4' sm='12'>
-                  <FormGroup floating>
-                    <Input
-                      id="signature"
-                      name="sig"
-                      placeholder="Signature"
-                      type="text"
-                    />
-                    <Label for="sig">
-                      Signature
-                    </Label>
-                    <p>{data['']}</p>
-
-                  </FormGroup>
-                </Col>
               </Row>
 
               {minor && (
@@ -267,12 +214,11 @@ const Waiver = ({data}) => {
                   <hr />
                   <div dangerouslySetInnerHTML={{__html: data['waiver-minor-main']}} />
                   <Row>
-                    <Col sm='10'>
+                    <Col md='1' />
+                    <Col sm='12' md='10'>
                       <label for='gunderstand'>
-                      {data['waiver-minor-understand']}
+                      <span>{data['waiver-minor-understand']}</span>
                       </label>
-                    </Col>
-                    <Col sm='2'>
                       <Input id='gunderstand' name='gunderstand' type='checkbox'></Input>
                       {' *'}
                     </Col>
@@ -281,33 +227,8 @@ const Waiver = ({data}) => {
                   <hr />
                   <Row>
                     <p class="info">{data['waiver-minor-info-2']}</p>
-                    <Col lg='6' sm='12'>
-                      <FormGroup floating>
-                        <Input
-                          id="gfname"
-                          name="gfirst-name"
-                          placeholder="First Name"
-                          type="text"
-                        />
-                        <Label for="gfname">
-                          First Name
-                        </Label>
-                      </FormGroup>
-                    </Col>
-                    <Col lg='6' sm='12'>
-                      <FormGroup floating>
-                        <Input
-                          id="glname"
-                          name="glname"
-                          placeholder="Last Name"
-                          type="text"
-                        />
-                        <Label for="glname">
-                          Last Name
-                        </Label>
-                      </FormGroup>
-                    </Col>
-                    <Col sm='12'>
+                    <Col md='3'/>
+                    <Col md='6' sm='12'>
                       <FormGroup floating>
                         <Input
                           id="gsig"
@@ -316,7 +237,7 @@ const Waiver = ({data}) => {
                           type="text"
                         />
                         <Label for="glname">
-                          Signature
+                          Parent/Guardian Signature
                         </Label>
                         <p>{data['waiver-signature-disclaimer']}</p>
                       </FormGroup>
