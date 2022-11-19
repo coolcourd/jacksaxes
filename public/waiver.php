@@ -7,7 +7,7 @@ $obj = json_decode($json);
 
 $email_body='';
 
-$required_fields = ['first-name', 'last-name', 'age', 'address', 'city', 'zip', 'phone', 'emergency', 'date', 'email', 'sig', 'birthday-month'];
+$required_fields = ['first-name', 'age', 'phone', 'date', 'email', 'sig', 'birthday-month'];
 
 if ($obj->age < 18) {
     $more_required_fields = ['gfirst-name', 'glname', 'gsig', 'gunderstand'];

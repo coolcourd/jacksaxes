@@ -10,6 +10,8 @@ import '../App.css';
 const Waiver = ({data}) => {
 
   const [minor, setMinor] = useState(false)
+  const [bdaySelected, selectBday] = useState(false)
+  const [defaultOption, setDefaultOption] = useState('')
 
   useEffect(() => {
     const dateArr = new Date().toLocaleString().split(/\D/).slice(0, 3)
@@ -116,15 +118,19 @@ const Waiver = ({data}) => {
                 <Col lg='4' sm='12'>
                 <FormGroup floating>
                     <Label for="birthday-month">
-                      Birthday Month
+                      {bdaySelected ? '' : 'Birthday Month'}
                     </Label>
                     <Input
                       id="birthday-month"
                       name="birthday-month"
+                      onChange={() => {
+                        selectBday(true)
+                        setDefaultOption('Birthday Month')
+                      }}
                       type="select"
                     >
                       {
-                        ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => {
+                        [defaultOption, 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(month => {
                           return <option key={month} value={month}>{month}</option>
                         }
                         )}
