@@ -15,6 +15,8 @@ const Waiver = ({data}) => {
   const [defaultOption, setDefaultOption] = useState('')
   const [sig, setSig] = useState('')
   const [gSig, setGSig] = useState('')
+  const [showSig, setShowSig] = useState(true)
+  const [showGSig, setShowGSig] = useState(true)
 
   useEffect(() => {
     const dateArr = new Date().toLocaleString().split(/\D/).slice(0, 3)
@@ -214,17 +216,18 @@ const Waiver = ({data}) => {
                   </FormGroup>
                 </Col>
                 <Col lg='4' sm='12'>
-                <FormGroup floating>
-                    <SignatureCanvas name='sig' penColor='green' ref={(ref) => {
-                      setSig(ref)
-                    } }
-    canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
-                    <Label for="sig">
-                      {sig && "Signature"}
-                    </Label>
-                    <p>{data['']}</p>
-
-                  </FormGroup>
+                <div onClick={() => {setShowSig(false)}}>
+                  <FormGroup floating>
+                      <SignatureCanvas name='sig' penColor='green' ref={(ref) => {
+                        setSig(ref)
+                      } }
+                      canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
+                      <Label for="sig">
+                        {showSig && "Signature"}
+                      </Label>
+                      <p>{data['']}</p>
+                    </FormGroup>
+                </div>
                 </Col>
 
               </Row>
@@ -250,17 +253,18 @@ const Waiver = ({data}) => {
                     <Col md='3'/>
                     <Col md='6' sm='12'>
                     <Col lg='4' sm='12'>
-                      <FormGroup floating>
-                          <SignatureCanvas name='gSig' penColor='green' ref={(ref) => {
-                            setGSig(ref)
-                          } }
-          canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
-                          <Label for="sig">
-                            {sig && "Signature"}
-                          </Label>
-                          <p>{data['']}</p>
-
-                        </FormGroup>
+                      <div onClick={() => {setShowGSig(false)}}>
+                        <FormGroup floating>
+                            <SignatureCanvas name='gSig' penColor='green' ref={(ref) => {
+                              setGSig(ref)
+                            } }
+                                  canvasProps={{width: document.getElementById('email')?.offsetWidth > 350 ? document.getElementById('email')?.offsetWidth : 350 , height: document.getElementById('email')?.offsetHeight, className: 'sigCanvas'}} />
+                            <Label for="sig">
+                              {showGSig && "Signature"}
+                            </Label>
+                            <p>{data['']}</p>
+                          </FormGroup>
+                      </div>
                       </Col>
                     </Col>
                     <p class="info">{data['waiver-minor-info-3']}</p>
