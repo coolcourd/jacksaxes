@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 
 const About = ({ data }) => {
   useEffect(() => {
+    const robots = document.querySelector('meta[name="robots"]');
+    robots.content = "index";
     if (data['about-meta-title']) {
       document.title = data['about-meta-title'];
     }

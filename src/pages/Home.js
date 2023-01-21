@@ -14,6 +14,8 @@ const Home = ({data}) => {
   let navigate = useNavigate();
 
   useEffect(() => {
+    const robots = document.querySelector('meta[name="robots"]');
+    robots.content = "index";
     if (data['home-meta-title']) {
       document.title = data['home-meta-title'];
     }

@@ -19,6 +19,8 @@ const Waiver = ({data}) => {
   const [showGSig, setShowGSig] = useState(true)
 
   useEffect(() => {
+    const robots = document.querySelector('meta[name="robots"]');
+    robots.content = "index";
     const dateArr = new Date().toLocaleString().split(/\D/).slice(0, 3)
     dateArr.unshift(dateArr.pop())
     const d = document.getElementById('date')
