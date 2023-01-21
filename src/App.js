@@ -7,11 +7,12 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Waiver from "./pages/Waiver";
 import Schedule from "./pages/Schedule";
+import Weddings from "./pages/Weddings";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+
 
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
         <Route path="about" element={<About data={data} />} />
         <Route path="waiver" element={<Waiver data={data} />} />
         <Route path="schedule" element={<Schedule data={data} />} />
+        <Route path="weddings" element={<Weddings data={data} />} />
       </Routes>
       <Footer data={data} />
     </BrowserRouter>
