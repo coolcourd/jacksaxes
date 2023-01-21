@@ -29,6 +29,6 @@ jobs:
       run: echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key
 
     - name: Deploy to server
-      run: rsync -avze "ssh -i /tmp/ssh-private-key" build/ ${{ secrets.USERNAME }}@${{ secrets.IP_ADDRESS }}:~/public_html
+      run: rsync -avze "ssh -i /tmp/ssh-private-key -o StrictHostKeyChecking=no" build/ ${{ secrets.USERNAME }}@${{ secrets.IP_ADDRESS }}:~/public_html
       env:
         SSH_AUTH_SOCK: /tmp/ssh-auth.sock
