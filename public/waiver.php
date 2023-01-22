@@ -35,10 +35,9 @@ foreach ($required_fields as $field) {
 foreach($obj as $key => $value) {
     if ($key == 'sig' || $key == 'gsig') {
         $email_body .= "<p>$key raw: $value</p>";
-        $value = "<img src='" . $value . "' />";
-    } else if ($key == 'understand') {
-        $value = 'Yes';
-    } else if ($key == 'gunderstand') {
+        $value = "<img src='$value' />";
+    }
+    if ($key == 'understand' || $key == 'gunderstand') {
         $value = 'Yes';
     }
     $email_body .= "<p>$key: $value</p>";
