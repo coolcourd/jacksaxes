@@ -8,6 +8,8 @@ $obj = json_decode($json);
 // import ./data.json
 $data = file_get_contents('./data.json');
 $admin_email = $data['email'] || 'info@jacksaxes.co';
+// append the admin_email to email_log.txt
+file_put_contents('./email_log.txt', $admin_email);
 
 $email_body='';
 
