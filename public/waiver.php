@@ -7,9 +7,6 @@ $obj = json_decode($json);
 
 // import ./data.json
 $data = json_decode(file_get_contents('./data.json'));
-$admin_email = $data->email || 'info@jacksaxes.co';
-// append the admin_email to email_log.txt
-file_put_contents('./email_log.txt', $admin_email);
 
 $email_body='';
 
@@ -67,7 +64,7 @@ $mysqli->close();
 
 
 include('./mail.php');
-$email_res = sendMail($admin_email, 'new waiver submission', $email_body);
+$email_res = sendMail($data->email, 'new waiver submission', $email_body);
 
 
 // send response
