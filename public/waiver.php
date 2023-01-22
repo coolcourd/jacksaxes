@@ -35,7 +35,13 @@ foreach ($required_fields as $field) {
 foreach($obj as $key => $value) {
     if ($key == 'sig' || $key == 'gsig') {
         $email_body .= "<p>$key raw: $value</p>";
-        $value = "<img src='$value' />";
+        $data = substr($value, strpos($value, 'base64,') + 7);
+        $data = base64_decode($data);
+        $image = imagecreatefromstring($data);
+        $random_string = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 15);
+        $img_url = "https://jacksaxes.co/8270hggw/sigs/$random_string.png";
+        imagepng($image, $img_url);
+        $value = "<img src='$img_url' />";
     }
     if ($key == 'understand' || $key == 'gunderstand') {
         $value = 'Yes';
