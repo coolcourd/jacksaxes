@@ -26,8 +26,9 @@ jobs:
       run: npm run build
 
     - name: Setup ssh key
-      run: echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key
-      run: chmod 600 /tmp/ssh-private-key
+      run: |
+      echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key
+      chmod 600 /tmp/ssh-private-key
 
     - name: Deploy to server
       run: rsync -avze "ssh -i /tmp/ssh-private-key -o StrictHostKeyChecking=no" build/ ${{ secrets.USERNAME }}@${{ secrets.IP_ADDRESS }}:~/public_html
