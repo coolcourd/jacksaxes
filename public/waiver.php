@@ -5,6 +5,10 @@ include('config.php');
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
 
+// import ./data.json
+$data = file_get_contents('./data.json');
+$admin_email = $data['email'] || 'info@jacksaxes.co';
+
 $email_body='';
 
 $required_fields = ['first-name', 'age', 'phone', 'date', 'email', 'sig', 'birthday-month'];
@@ -61,7 +65,7 @@ $mysqli->close();
 
 
 include('./mail.php');
-$email_res = sendMail('info@jacksaxes.co', 'new waiver submission', $email_body);
+$email_res = sendMail($admin_email, 'new waiver submission', $email_body);
 
 
 // send response
