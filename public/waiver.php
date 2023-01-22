@@ -45,8 +45,8 @@ foreach($obj as $key => $value) {
         $random_string = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 15);
         $img_url = "https://jacksaxes.co/8270hggw/sigs/$random_string.png";
         $save_path = "8270hggw/sigs/$random_string.png";
-        $value = "<img src='$img_url' />";
         array_push($queue, [$value, $save_path]);
+        $value = "<img src='$img_url' />";
     }
     if ($key == 'understand' || $key == 'gunderstand') {
         $value = 'Yes';
