@@ -27,7 +27,7 @@ jobs:
 
     - name: Setup ssh key
       run: |
-      echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key;
+      echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key &&
       chmod 600 /tmp/ssh-private-key
 
     - name: Deploy to server
