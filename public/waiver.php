@@ -33,10 +33,8 @@ foreach ($required_fields as $field) {
 
 // loop over obj and print as html
 foreach($obj as $key => $value) {
-    if ($key == 'sig') {
-        $value = '<img src="' . $value . '" />';
-    } else if ($key == 'gsig') {
-        $value = '<img src="' . $value . '" />';
+    if ($key == 'sig' || $key == 'gsig') {
+        $value = "<img src='" . $value . "' />";
     } else if ($key == 'understand') {
         $value = 'Yes';
     } else if ($key == 'gunderstand') {
