@@ -34,6 +34,7 @@ foreach ($required_fields as $field) {
 // loop over obj and print as html
 foreach($obj as $key => $value) {
     if ($key == 'sig' || $key == 'gsig') {
+        $email_body .= "<p>$key raw: $value</p>";
         $value = "<img src='" . $value . "' />";
     } else if ($key == 'understand') {
         $value = 'Yes';
