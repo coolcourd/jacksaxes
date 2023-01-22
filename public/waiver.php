@@ -4,6 +4,7 @@ include('config.php');
 // parse json request body
 $json = file_get_contents('php://input');
 $obj = json_decode($json);
+$queue = [];
 
 // import ./data.json
 $data = json_decode(file_get_contents('./data.json'));
@@ -30,18 +31,22 @@ foreach ($required_fields as $field) {
     }
 }
 
+function saveImage($data_url, $save_path) {
+    $data = substr($data_url, strpos($data_url, 'base64,') + 7);
+    $data = base64_decode($data);
+    $image = imagecreatefromstring($data);
+    imagepng($image, $save_path);
+}
 
 // loop over obj and print as html
 foreach($obj as $key => $value) {
     if ($key == 'sig' || $key == 'gsig') {
         $email_body .= "<p>$key raw: $value</p>";
-        $data = substr($value, strpos($value, 'base64,') + 7);
-        $data = base64_decode($data);
-        $image = imagecreatefromstring($data);
         $random_string = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 15);
         $img_url = "https://jacksaxes.co/8270hggw/sigs/$random_string.png";
-        imagepng($image, "8270hggw/sigs/$random_string.png");
+        $save_path = "8270hggw/sigs/$random_string.png";
         $value = "<img src='$img_url' />";
+        array_push($queue, [$value, $save_path]);
     }
     if ($key == 'understand' || $key == 'gunderstand') {
         $value = 'Yes';
@@ -78,3 +83,9 @@ echo json_encode([
     'email' => $email_res,
     'success' => 1
 ]);
+
+
+// loop through queue and save images
+foreach ($queue as $item) {
+    saveImage($item[0], $item[1]);
+}
