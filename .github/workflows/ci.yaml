@@ -26,8 +26,9 @@ jobs:
       run: npm run build
 
     - name: Setup ssh key
-      run: |
-      echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key &&
+      run: echo '${{ secrets.SSH_PRIVATE_KEY }}' > /tmp/ssh-private-key
+
+    - name: perms
       chmod 600 /tmp/ssh-private-key
 
     - name: Deploy to server
