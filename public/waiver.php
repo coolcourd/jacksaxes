@@ -41,7 +41,6 @@ function saveImage($data_url, $save_path) {
 // loop over obj and print as html
 foreach($obj as $key => $value) {
     if ($key == 'sig' || $key == 'gsig') {
-        $email_body .= "<p>$key raw: $value</p>";
         $random_string = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 15);
         $img_url = "https://jacksaxes.co/8270hggw/sigs/$random_string.png";
         $save_path = "8270hggw/sigs/$random_string.png";
